@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CV</title>
+    <title>Andrew Hanson Curriculum Vitaeu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,8 +62,8 @@
         // Process CSV content
         rows.forEach((row, index) => {
             if (index > 0 && row.trim() !== '') { // skip the header and empty lines
-                const [title,year, description, link] = row.split(',');
-                projects.push({ title,year, description, link });
+                const [title, year, description, link] = row.split(',');
+                projects.push({ title, year, description, link });
             }
         });
 
