@@ -1,4 +1,5 @@
-Title,Description,Link
-Project 1,Description of project 1,https://example.com/project1
-Project 2,Description of project 2,https://example.com/project2
-Project 3,Description of project 3,https://example.com/project3
+Job Title,Year,Description
+IT Operations Administrator,01_2021-01_2022,Description of project 1,https://example.com/project1
+IT Operations Lead,02_2022-01_2023,Description of project 2,https://example.com/project2
+IT Operations Manager,02_2023-02_2025,Description of project 3,https://example.com/project3
+IT Service Delivery Manager, 03_2025-,Description of Project,4,https://example.com/project3
