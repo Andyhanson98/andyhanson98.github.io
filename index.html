@@ -47,7 +47,7 @@
 </header>
 
 <div class="content">
-    <h2>My Work</h2>
+    <h2>Job History</h2>
     <ul class="project-list" id="project-list"></ul>
 </div>
 
@@ -63,7 +63,7 @@
         rows.forEach((row, index) => {
             if (index > 0 && row.trim() !== '') { // skip the header and empty lines
                 const [title, description, link] = row.split(',');
-                projects.push({ title, description, link });
+                projects.push({ title,year, description, link });
             }
         });
 
