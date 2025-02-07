@@ -1,9 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .project-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .project-item {
+            margin: 10px 0;
+        }
+        .project-item a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .project-item p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<header>
+    <h1>My CV</h1>
+    <p>Welcome to my portfolio website</p>
+</header>
+
+<div class="content">
+    <h2>My Work</h2>
+    <ul class="project-list" id="project-list"></ul>
+</div>
+
+<script>
+    // Function to fetch and parse CSV file
+    async function fetchCSV() {
+        const response = await fetch('work.csv');
+        const data = await response.text();
+        const rows = data.split('\n');
+        const projects = [];
+        
+        // Process CSV content
+        rows.forEach((row, index) => {
+            if (index > 0 && row.trim() !== '') { // skip the header and empty lines
+                const [title, description, link] = row.split(',');
+                projects.push({ title, description, link });
+            }
+        });
+
+        // Display the projects
+        displayProjects(projects);
+    }
+
+    // Function to display projects in the HTML
+    function displayProjects(projects) {
+        const projectList = document.getElementById('project-list');
+        projects.forEach(project => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('project-item');
+            listItem.innerHTML = `
+                <a href="${project.link}" target="_blank">${project.title}</a>
+                <p>${project.description}</p>
+            `;
+            projectList.appendChild(listItem);
+        });
+    }
+
+    // Fetch the CSV data when the page loads
+    window.onload = fetchCSV;
+</script>
 
 </body>
 </html>
